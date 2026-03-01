@@ -1,0 +1,218 @@
+/* Re-use global page-header styles from styles.scss but keeping standard structure */
+.page-header {
+    background-color: var(--primary);
+    color: white;
+    padding: 80px 0 60px;
+    text-align: center;
+}
+
+.page-title {
+    font-size: 3.5rem;
+    margin-bottom: 16px;
+    color: white;
+}
+
+.page-title.color-text span {
+    color: white;
+}
+
+.page-title.color-text span:nth-child(2) {
+    color: var(--accent);
+}
+
+.page-subtitle {
+    font-size: 1.25rem;
+    color: var(--accent-light);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.academics-intro {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-white {
+    color: white !important;
+}
+
+.intro-content p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 32px;
+}
+
+.feature-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    font-size: 1.05rem;
+    color: var(--text-primary);
+    line-height: 1.5;
+}
+
+.list-icon {
+    font-size: 2rem;
+    margin-top: -2px;
+}
+
+.text-primary {
+    color: var(--primary);
+}
+
+.text-secondary {
+    color: var(--secondary);
+}
+
+.text-info {
+    color: var(--info);
+}
+
+.text-purple {
+    color: var(--purple);
+}
+
+.intro-image-container {
+    position: relative;
+}
+
+.intro-image {
+    border-radius: var(--radius-lg);
+    width: 100%;
+    height: 450px;
+    object-fit: cover;
+}
+
+.floating-stat {
+    position: absolute;
+    bottom: -30px;
+    left: -30px;
+    background-color: var(--surface);
+    padding: 24px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-lg);
+    text-align: center;
+    border-left: 4px solid var(--secondary);
+}
+
+.stat-number {
+    display: block;
+    font-size: 2.5rem;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    color: var(--secondary);
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+}
+
+.bg-colorful {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--purple) 100%);
+    color: white;
+}
+
+.programs-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.program-card {
+    background: white;
+    padding: 40px 30px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    text-align: center;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+    color: var(--text-primary);
+}
+
+.program-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-color: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+}
+
+.program-card:hover::before {
+    transform: scaleX(1);
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--background);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 24px;
+}
+
+.card-icon .material-symbols-outlined {
+    font-size: 2.5rem;
+}
+
+.program-card h3 {
+    font-size: 1.5rem;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.program-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+@media (max-width: 1024px) {
+    .programs-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .academics-intro {
+        grid-template-columns: 1fr;
+    }
+
+    .floating-stat {
+        left: 20px;
+        bottom: -20px;
+    }
+
+    .programs-grid {
+        grid-template-columns: 1fr;
+    }
+}

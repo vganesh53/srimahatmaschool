@@ -1,0 +1,104 @@
+<section class="page-header">
+    <div class="container text-center">
+        <h1 class="page-title">Contact Us</h1>
+        <p class="page-subtitle">We would love to hear from you. Get in touch with us today.</p>
+    </div>
+</section>
+
+<section class="section contact-section">
+    <div class="container">
+        <div class="contact-grid">
+            <!-- Contact Info -->
+            <div class="contact-info">
+                <h2 class="section-title text-left">Get In Touch</h2>
+                <p class="contact-intro">Whether you have questions about admissions, academic programs, or campus life,
+                    our team is here to help.</p>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <span class="material-symbols-outlined">location_on</span>
+                    </div>
+                    <div class="info-content">
+                        <h3>Visit Our Campus</h3>
+                        <p>123 Knowledge Avenue<br>Education City, 500001</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <span class="material-symbols-outlined">call</span>
+                    </div>
+                    <div class="info-content">
+                        <h3>Call Us</h3>
+                        <p>Reception: +91 98765 43210<br>Admissions: +91 98765 43211</p>
+                    </div>
+                </div>
+
+                <div class="info-card">
+                    <div class="info-icon">
+                        <span class="material-symbols-outlined">mail</span>
+                    </div>
+                    <div class="info-content">
+                        <h3>Email Us</h3>
+                        <p>info@srimahathama.edu.in<br>admissions@srimahathama.edu.in</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="contact-form-container">
+                <form class="contact-form" (submit)="onSubmit($event)">
+                    <h3 class="form-title">Send us a Message</h3>
+
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" class="form-control" placeholder="John Doe" required>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" class="form-control" placeholder="john@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" class="form-control" placeholder="+91 00000 00000">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <select id="subject" class="form-control" required>
+                            <option value="" disabled selected>Select an option</option>
+                            <option value="admission">Admissions Inquiry</option>
+                            <option value="general">General Inquiry</option>
+                            <option value="feedback">Feedback</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" class="form-control" rows="5" placeholder="How can we help you?"
+                            required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section map-section">
+    <div class="container text-center">
+        <h2 class="section-title">Find Us Here</h2>
+        <p class="section-subtitle">Visit our colorful campus in person.</p>
+        <div class="map-container shadow">
+            <!-- Embedded Google Map -->
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3810.0886505081177!2d82.49887751532577!3d17.29424888812604!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a3a41ba550607bf%3A0xe5aebd985002fe1d!2sSri%20Mahatma%20English%20Medium%20School%2CD%20Polavaram!5e0!3m2!1sen!2sin!4v1680123456789!5m2!1sen!2sin"
+                width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+    </div>
+</section>

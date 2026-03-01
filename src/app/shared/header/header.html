@@ -1,0 +1,26 @@
+<header class="header">
+    <div class="container header-container">
+        <div class="logo">
+            <a routerLink="/" class="logo-link">
+                <img src="1.png" alt="Sri Mahatma Public School Logo" class="logo-img">
+                <h4 class="color-text">Sri Mahatma <br>Public School</h4>
+            </a>    
+        </div>
+
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-toggle" (click)="toggleMenu()">
+            <span class="material-symbols-outlined">{{ menuOpen ? 'close' : 'menu' }}</span>
+        </button>
+
+        <!-- Navigation -->
+        <nav class="nav" [class.nav-open]="menuOpen">
+            <ul class="nav-list">
+                <li><a routerLink="/home" routerLinkActive="active" (click)="menuOpen = false">Home</a></li>
+                <li><a routerLink="/about" routerLinkActive="active" (click)="menuOpen = false">About Us</a></li>
+                <li><a routerLink="/academics" routerLinkActive="active" (click)="menuOpen = false">Academics</a></li>
+                <li><a routerLink="/gallery" routerLinkActive="active" (click)="menuOpen = false">Gallery</a></li>
+                <li><a routerLink="/contact-us" routerLinkActive="active" (click)="menuOpen = false">Contact Us</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>

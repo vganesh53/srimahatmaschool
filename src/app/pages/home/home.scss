@@ -1,0 +1,916 @@
+/* Hero Banner Animations & Layout */
+.hero-section {
+    position: relative;
+    height: 90vh;
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-image:
+        // linear-gradient(135deg, rgba(99, 102, 241, 0.8), rgba(236, 72, 153, 0.8), rgba(244, 63, 94, 0.8)),
+        url('/school_campus.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.hero-bg-animated {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Subtle animated gradient overlay to keep it lively */
+    background: linear-gradient(45deg, rgba(16, 185, 129, 0.2), rgba(14, 165, 233, 0.2));
+    animation: pulseBg 8s ease-in-out infinite alternate;
+    z-index: 1;
+}
+
+@keyframes pulseBg {
+    0% {
+        opacity: 0.5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    color: white;
+    max-width: 900px;
+}
+
+.text-gradient {
+    background: linear-gradient(90deg, #111, #333, #000);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-content .text-gradient {
+    font-size: 2rem;
+    font-weight: 500;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.text-hero {
+    font-size: 5rem;
+    line-height: 1.1;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    display: block;
+    margin: 15px 0 25px;
+}
+
+.lead-text {
+    font-size: 1.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 40px;
+    text-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.btn-outline-white {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+    padding: 12px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    transition: var(--transition);
+}
+
+.btn-outline-white:hover {
+    background: white;
+    color: var(--secondary);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.pulse-btn {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 15px rgba(211, 47, 47, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(211, 47, 47, 0);
+    }
+}
+
+/* Mouse Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.mouse {
+    width: 30px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+}
+
+.wheel {
+    width: 4px;
+    height: 10px;
+    background: white;
+    border-radius: 2px;
+    animation: scrollWheel 1.5s infinite;
+}
+
+@keyframes scrollWheel {
+    0% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(15px);
+        opacity: 0;
+    }
+}
+
+.arrow-down {
+    color: white;
+    animation: bounceArrow 1.5s infinite;
+}
+
+@keyframes bounceArrow {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(5px);
+    }
+}
+
+/* Initial Load Animations */
+.bounce-in {
+    animation: bounceInUp 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.fade-in {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+    animation-delay: 0.4s;
+}
+
+.fade-in-delayed {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+    animation-delay: 0.8s;
+}
+
+@keyframes bounceInUp {
+    0% {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+/* Marquee infinite scroll */
+.marquee-container {
+    background: var(--primary);
+    color: white;
+    padding: 15px 0;
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+}
+
+.marquee-content {
+    display: flex;
+    gap: 40px;
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    animation: marquee 20s linear infinite;
+}
+
+.marquee-content span {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+
+    /* Assuming content is duplicated to allow seamless loop */
+}
+
+/* About Section */
+.about-section {
+    padding: 100px 0;
+    background-color: var(--surface);
+    overflow: hidden;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-image {
+    position: relative;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
+.image-wrapper {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.image-wrapper img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.image-wrapper:hover img {
+    transform: scale(1.05);
+}
+
+.experience-badge {
+    position: absolute;
+    bottom: -20px;
+    right: 0;
+    background: linear-gradient(135deg, var(--primary), var(--rose));
+    color: white;
+    padding: 20px 30px;
+    border-radius: var(--radius-md);
+    box-shadow: 0 10px 20px rgba(211, 47, 47, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 2;
+}
+
+.experience-badge .years {
+    font-size: 3rem;
+    font-weight: 800;
+    line-height: 1;
+}
+
+.experience-badge .text {
+    font-size: 1rem;
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+.about-content {
+    padding-left: 20px;
+}
+
+.about-content .subtitle {
+    font-size: 1.5rem;
+    color: var(--secondary);
+    margin-bottom: 20px;
+    font-weight: 600;
+}
+
+.about-content p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.8;
+}
+
+.feature-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-bottom: 30px;
+}
+
+.feature-list li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-weight: 500;
+    color: var(--text-primary);
+}
+
+.check-icon {
+    color: var(--info);
+    font-size: 1.25rem;
+}
+
+@media (max-width: 992px) {
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .about-image {
+        padding-right: 0;
+        padding-bottom: 40px;
+        order: 2;
+    }
+
+    .about-content {
+        padding-left: 0;
+        order: 1;
+    }
+
+    .experience-badge {
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+@media (max-width: 576px) {
+    .feature-list {
+        grid-template-columns: 1fr;
+    }
+
+    .experience-badge {
+        padding: 15px 20px;
+    }
+
+    .experience-badge .years {
+        font-size: 2rem;
+    }
+}
+
+/* Beautiful Gradient Bento Grid */
+.bento-section {
+    padding: 100px 0;
+    position: relative;
+    background-color: var(--background);
+    overflow: hidden;
+}
+
+/* Background elements for bento section */
+.bento-section::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(211, 47, 47, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    animation: float 15s infinite alternate;
+}
+
+.bento-section::after {
+    content: '';
+    position: absolute;
+    bottom: -150px;
+    left: -100px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(26, 35, 126, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+    animation: float 20s infinite alternate-reverse;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 280px;
+    gap: 20px;
+    margin-top: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+.bento-box {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+    transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
+    background-color: white;
+}
+
+.bento-box:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    z-index: 10;
+}
+
+.bento-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+}
+
+.bento-box:hover .bento-bg {
+    transform: scale(1.1);
+}
+
+.bento-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.gradient-overlay-primary {
+    background: linear-gradient(to top, rgba(211, 47, 47, 0.9), transparent);
+}
+
+.gradient-overlay-secondary {
+    background: linear-gradient(to right, rgba(26, 35, 126, 0.9), rgba(26, 35, 126, 0.4));
+}
+
+.gradient-overlay-dark {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+.gradient-overlay-accent {
+    background: linear-gradient(to top left, rgba(251, 192, 45, 0.9), rgba(255, 255, 255, 0.2));
+}
+
+.gradient-bg-vibrant {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--rose) 100%);
+    color: white;
+}
+
+.bento-content {
+    position: relative;
+    z-index: 2;
+    padding: 30px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    color: white;
+}
+
+.bento-content.centered {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.bento-content.flex-row {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.bottom-aligned {
+    justify-content: flex-end;
+}
+
+.bento-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px;
+    border-radius: 50%;
+    width: max-content;
+    backdrop-filter: blur(5px);
+}
+
+.bento-box h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.bento-box p {
+    font-size: 1rem;
+    opacity: 0.9;
+    line-height: 1.4;
+}
+
+.big-number {
+    font-size: 4rem !important;
+    font-family: var(--font-heading);
+    text-shadow: none !important;
+    margin-bottom: 0 !important;
+}
+
+.circle-btn {
+    background: white;
+    color: var(--secondary);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.circle-btn:hover {
+    transform: rotate(-45deg);
+    background: var(--accent);
+    color: white;
+}
+
+/* Bento Grid Spans */
+.bento-large {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.info-box {
+    grid-column: span 1;
+    grid-row: span 1;
+    overflow: hidden;
+}
+
+.info-box .stat-label {
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.tall-box {
+    grid-column: span 1;
+    grid-row: span 2;
+}
+
+.wide-box {
+    grid-column: span 2;
+    grid-row: span 1;
+}
+
+.sports-box {
+    grid-column: span 1;
+    grid-row: span 1;
+}
+
+.sports-box h3 {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.sports-box p {
+    color: white;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.8);
+    font-weight: 500;
+}
+
+/* Floating shapes for info box */
+.floating-shapes .shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+}
+
+.floating-shapes .circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    top: -50px;
+    right: -50px;
+    animation: float 6s infinite;
+}
+
+.floating-shapes .triangle {
+    width: 0;
+    height: 0;
+    border-left: 50px solid transparent;
+    border-right: 50px solid transparent;
+    border-bottom: 100px solid rgba(255, 255, 255, 0.1);
+    bottom: -20px;
+    left: -20px;
+    transform: rotate(45deg);
+    animation: float 8s infinite reverse;
+}
+
+/* Details Section 3D Card */
+.comprehensive-info {
+    background-color: var(--background);
+    padding: 60px 0 100px;
+}
+
+.container-narrow {
+    max-width: 1000px;
+}
+
+.info-card-3d {
+    perspective: 1000px;
+}
+
+.info-card-inner {
+    background: white;
+    padding: 60px;
+    border-radius: calc(var(--radius-lg) * 1.5);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.05);
+    border: 1px solid var(--border);
+    text-align: center;
+    transition: transform 0.5s ease;
+    transform-style: preserve-3d;
+}
+
+.info-card-inner:hover {
+    transform: rotateX(2deg) rotateY(2deg) translateY(-10px);
+    box-shadow: -10px 30px 60px rgba(0, 0, 0, 0.1);
+}
+
+.info-columns {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.section-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 15px;
+    background: var(--background);
+    border-radius: var(--radius-sm);
+}
+
+.info-columns h4 {
+    margin-bottom: 10px;
+    font-size: 1.25rem;
+}
+
+.info-columns p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.glow-on-hover {
+    transition: all 0.3s ease;
+}
+
+.glow-on-hover:hover {
+    box-shadow: 0 0 20px var(--primary-light), 0 0 40px var(--primary);
+}
+
+/* CTA Banner */
+.cta-banner {
+    position: relative;
+    background: linear-gradient(135deg, var(--secondary) 0%, var(--info) 100%);
+    padding: 80px 0;
+    overflow: hidden;
+    color: white;
+}
+
+.cta-bg-shapes .shape {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 50%;
+    animation: float 10s infinite;
+}
+
+.cta-bg-shapes .s1 {
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    left: -50px;
+}
+
+.cta-bg-shapes .s2 {
+    width: 400px;
+    height: 400px;
+    bottom: -200px;
+    right: -100px;
+    animation-direction: reverse;
+}
+
+.cta-bg-shapes .s3 {
+    width: 150px;
+    height: 150px;
+    top: 50px;
+    right: 30%;
+    animation-duration: 7s;
+}
+
+.cta-content {
+    position: relative;
+    z-index: 2;
+}
+
+.cta-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.cta-content p {
+    font-size: 1.25rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn-white {
+    background: white;
+    color: var(--secondary);
+    font-size: 1.2rem;
+    padding: 15px 40px;
+}
+
+.btn-white:hover {
+    background: var(--accent);
+    color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.hover-lift {
+    transition: transform 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-5px);
+}
+
+/* Animation on scroll helper using purely CSS keyframes since we don't have JS observer set up easily */
+@keyframes fadeInUpScroll {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Note: In modern Chrome this can use view() timeline, but for safe cross-browser we use normal animations with delay on load, 
+   or assume the user sees the top section first. We'll simply use staggered fade-ins for the grid. */
+.fade-on-scroll {
+    animation: fadeInUpScroll 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+}
+
+/* Fallback for browsers without animation-timeline */
+@supports not (animation-timeline: view()) {
+    .bento-box {
+        animation: fadeInUpScroll 1s ease both;
+    }
+
+    .delay-1 {
+        animation-delay: 0.1s;
+    }
+
+    .delay-2 {
+        animation-delay: 0.2s;
+    }
+
+    .delay-3 {
+        animation-delay: 0.3s;
+    }
+
+    .delay-4 {
+        animation-delay: 0.4s;
+    }
+
+    .delay-5 {
+        animation-delay: 0.5s;
+    }
+}
+
+@media (max-width: 1024px) {
+    .bento-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-auto-rows: minmax(280px, auto);
+    }
+
+    .bento-large {
+        grid-column: span 2;
+        grid-row: span 2;
+    }
+
+    .tall-box {
+        grid-column: span 1;
+        grid-row: span 2;
+    }
+
+    .wide-box {
+        grid-column: span 2;
+        grid-row: span 1;
+    }
+
+    .info-columns {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding-top: 100px;
+        /* Add padding to prevent overlap with fixed header */
+        height: auto;
+        padding-bottom: 100px;
+    }
+
+    .text-hero {
+        font-size: 2.5rem;
+    }
+
+    .hero-content .text-gradient {
+        font-size: 1.2rem;
+    }
+
+    .lead-text {
+        font-size: 1rem;
+        margin-bottom: 25px;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: minmax(280px, auto);
+    }
+
+    .bento-large,
+    .wide-box,
+    .tall-box,
+    .info-box,
+    .sports-box,
+    .science-box,
+    .campus-box,
+    .tech-box {
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
+    }
+
+    .bento-box {
+        min-height: 280px;
+        height: auto;
+    }
+
+    .bento-content {
+        padding: 20px;
+    }
+}
